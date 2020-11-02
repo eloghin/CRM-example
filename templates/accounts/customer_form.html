@@ -1,0 +1,14 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<br>
+<div class="container">
+  <h3>Create a new customer:</h3>
+  <form class="" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create customer">
+  </form>
+</div>
+
+{% endblock %}

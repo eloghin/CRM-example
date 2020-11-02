@@ -1,0 +1,25 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'dashboard' %}">
+      <img src="{% static "images/logo.png" %}" height="30" alt="" loading="lazy">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link active" href="{% url 'dashboard' %}">Dashboard<span class="sr-only">(current)</span></a>
+      <a class="nav-link active" href="{% url 'products' %}">Products</a>
+    </div>
+  </div>
+
+ {% if user.is_authenticated %}
+    <span class="text-light bg-dark">Hello, {{request.user}}</span>
+    <span><a class="text-light bg-dark nav-link active" href="{% url 'logout' %}">Logout<span class="sr-only">(current)</span></a></span>
+  {% else %}
+    <span> <a class="text-light bg-dark nav-link active" href="{% url 'login' %}">Login<span class="sr-only">(current)</span></a></span>
+    <span> <a class="text-light bg-dark nav-link active" href="{% url 'create_user' %}">Register<span class="sr-only">(current)</span></a></span>
+  {% endif %}</span>
+
+</nav>

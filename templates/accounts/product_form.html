@@ -1,0 +1,15 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<br>
+<div class="container">
+  <h3>{{ header }}</h3>
+  <form class="" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+
+{% endblock %}

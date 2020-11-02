@@ -1,0 +1,22 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+<br>
+    <div class="container jumbotron">
+      <h1 class="display-4">Welcome to your CRM page</h1>
+
+      {% if user.is_authenticated %}
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Logout, {{ user.get_username }}</a>
+        </p>
+      {% else %}
+        <p class="lead">Please login to continue</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Login</a>
+          <a class="btn btn-info btn-lg" href="{% url 'create_user' %}" role="button">Register</a>
+        </p>
+      {% endif %}
+
+
+
+    </div>
+{% endblock %}
